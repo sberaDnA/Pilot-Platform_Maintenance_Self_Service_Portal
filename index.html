@@ -1,95 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Platform Maintenance Self Service Portal</title>
-	<link href="css/default-stylesheet.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  </head>
-  
-  <body>
-    <div class="testbox">
-      <form action="/">
-        <div class="banner">
-          <h1>Platform Maintenance Self Service Portal</h1>
-        </div>
-		<div class="item">
-			<label for="sm_name">Select Maintenance Type<span>*</span></label>
-            <select class="custom-item" required>
-              <option selected value="" disabled selected></option>
-              <option value="System_Maintenance_FRM-11106" >System Maintenance FRM-11106</option>
-              <option value="Server_Maintenance_FRM-10481">Server Maintenance FRM-10481</option>
-			 </select> 
-		</div>
+
+<head>
+  <title>Platform Maintenance Self Service Portal</title>
+  <link href="css/default-stylesheet.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="testbox">
+    <form action="/">
+      <div class="banner">
+        <h1>Platform Maintenance Self Service Portal</h1>
+      </div>
+      <div class="item">
+        <label for="sm_name">Select Maintenance Type<span>*</span></label>
+        <select class="custom-item" required>
+          <option selected value="" disabled selected></option>
+          <option value="System_Maintenance_FRM-11106">System Maintenance FRM-11106</option>
+          <option value="Server_Maintenance_FRM-10481">Server Maintenance FRM-10481</option>
+        </select>
+      </div>
+      <div class="item">
+        <label for="system_name"> System Name<span>*</span></label>
+        <input id="system_name" type="text" name="system_name" placeholder="e.g. RDM OBIEE or HRA OBIEE" required />
+      </div>
+      <div class="item">
+        <label for="activity_names">Select activities for which you want to perform maintenance form the below multi
+          select list.<span>*</span></label>
+        <br />
+        <select class="custom-item2" multiple>
+          <option value="activity_1">Activity 1: Review of Privileged user accounts</option>
+          <option value="activiy_2">Activity 2: Review of System Administrator accounts</option>
+          <option value="activiy_3">Activity 3: System account password management</option>
+          <option value="activiy_4">Activity 4: Review of program files and configurations</option>
+          <option value="activiy_5">Activity 5: Review of scheduled jobs</option>
+          <option value="activiy_6">Activity 6: Review of system</option>
+          <option value="activiy_7">Activity 7: Review of system restore status</option>
+          <option value="activiy_8">Activity 8: Verify system is in the CMDB</option>
+          <option value="activiy_9">Activity 9: Verify system has all relationships to other Cis</option>
+          <option value="activiy_10">Activity 10: Additional System Specific Maintenance</option>
+        </select>
+      </div>
+      <div class="item">
+        <label for="location">Server Location<span>*</span></label>
+        <input id="location" type="text" name="location" placeholder="e.g. San Jose or Foster City" required />
+      </div>
+      <div class="item">
+        <label for="Operation_and_Maintenance_Procedure">Operation and Maintenance Procedure <span>*</span></label>
+        <input id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure"
+          placeholder="SOP Document Number" required />
+      </div>
+      <div class="item">
+        <label for="due_date">Due Date<span>*</span></label>
+        <input id="due_date" type="date" name="due_date" required />
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="item">
+        <label for="sm_name">Interval<span>*</span></label>
+        <select class="custom-item">
+          <option selected value="" disabled selected></option>
+          <option value="Quaterly">Quaterly</option>
+          <option value="Semi_Annual">Semi Annual</option>
+        </select>
+      </div>
+      <div class="flax">
         <div class="item">
-          <label for="system_name"> System Name<span>*</span></label>
-          <input id="system_name" type="text" name="system_name" placeholder="e.g. RDM OBIEE or HRA OBIEE" required/>
-        </div>
-		<div class="item">
-			<label for="activity_names">Select activities for which you want to perform maintenance form the below multi select list.<span>*</span></label>
-            <br/>
-			<select class="custom-item2" multiple>
-              <option value="activity_1" >Activity 1: Review of Privileged user accounts</option>
-              <option value="activiy_2">Activity 2: Review of System Administrator accounts</option>
-			  <option value="activiy_3">Activity 3: System account password management</option>
-			  <option value="activiy_4">Activity 4: Review of program files and configurations</option>
-			  <option value="activiy_5">Activity 5: Review of scheduled jobs</option>
-			  <option value="activiy_6">Activity 6: Review of system</option>
-			  <option value="activiy_7">Activity 7: Review of system restore status</option>
-			  <option value="activiy_8">Activity 8: Verify system is in the CMDB</option>
-			  <option value="activiy_9">Activity 9: Verify system has all relationships to other Cis</option>
-			  <option value="activiy_10">Activity 10: Additional System Specific Maintenance</option>
-			 </select> 
-		</div>
-        <div class="item">
-          <label for="location">Server Location<span>*</span></label>
-          <input id="location" type="text" name="location" placeholder="e.g. San Jose or Foster City" required/>
-        </div>
-        <div class="item">
-          <label for="Operation_and_Maintenance_Procedure">Operation and Maintenance Procedure <span>*</span></label>
-          <input id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure" placeholder="SOP Document Number" required/>
-        </div>
-		<div class="item">
-          <label for="due_date">Due Date<span>*</span></label>
-          <input id="due_date" type="date" name="due_date" required/>
+          <label for="maintenance_period">Maintenance Period (Date Range)<span>*</span></label>
+          <p>Start Date</p>
+          <input id="start_date" type="date" name="start_date" required />
+          <i class="fas fa-calendar-alt"></i>
+          <p>End Date</p>
+
+          <input id="end_date" type="date" name="end_date" required />
           <i class="fas fa-calendar-alt"></i>
         </div>
-		<div class="item">
-		<label for="sm_name">Interval<span>*</span></label>
-            <select class="custom-item">
-              <option selected value="" disabled selected></option>
-              <option value="Quaterly" >Quaterly</option>
-              <option value="Semi_Annual">Semi Annual</option>
-			 </select> 
-		</div>   
-        <div class="flax">
-          <div class="item">
-		  <label for="maintenance_period">Maintenance Period (Date Range)<span>*</span></label>
-            <p>Start Date</p>
-			<input id="start_date" type="date" name="start_date" required/>
-            <i class="fas fa-calendar-alt"></i>
-			<p>End Date</p>
-			
-			<input id="end_date" type="date" name="end_date" required/>
-            <i class="fas fa-calendar-alt"></i>
-          </div>
-        </div>
-		<div class="item">
-          <label for="reviewer_mailid"> Reviewer Mail ID or DL<span>*</span></label>
-          <input id="reviewer_mailid" type="text" name="reviewer_mailid" required/>
-        </div>
-		<div class="item">
-          <label for="approver_mailid"> Approver Mail ID or DL<span>*</span></label>
-          <input id="approver_mailid" type="text" name="approver_mailid" required/>
-        </div>
-        <div class="item">
-          <label for="instructions">Special Instructions</label>
-          <textarea id="instructions" rows="3"></textarea>
-        </div>
-        <p><small>0/100 characters</small></p>
-        <div class="btn-block">
-          <button id="submit_btn1" type="submit" href="/">Submit</button>
-        </div>
-      </form>
-    </div>
-  </body>
+      </div>
+      <div class="item">
+        <label for="reviewer_mailid"> Reviewer Mail ID or DL<span>*</span></label>
+        <input id="reviewer_mailid" type="text" name="reviewer_mailid" required />
+      </div>
+      <div class="item">
+        <label for="approver_mailid"> Approver Mail ID or DL<span>*</span></label>
+        <input id="approver_mailid" type="text" name="approver_mailid" required />
+      </div>
+      <div class="item">
+        <label for="instructions">Special Instructions</label>
+        <textarea id="instructions" rows="3"></textarea>
+      </div>
+      <p><small>0/100 characters</small></p>
+      <div class="btn-block">
+        <button id="submit_btn1" type="submit" href="/">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+
 </html>
