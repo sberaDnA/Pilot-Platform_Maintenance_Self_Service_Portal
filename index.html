@@ -6,6 +6,8 @@
   <link href="css/default-stylesheet.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="js/default-javascript.js"></script>
 </head>
 
 <body>
@@ -24,7 +26,15 @@
       </div>
       <div class="item">
         <label for="system_name"> System Name<span>*</span></label>
-        <input id="system_name" type="text" name="system_name" placeholder="e.g. RDM OBIEE or HRA OBIEE" required />
+        <select class="custom-item" required>
+          <option selected value="" disabled selected></option>
+          <option value="RDM_OBIEE">RDM BI OBIEE</option>
+          <option value="RDM_OBIEE">RDM BI INFORMATICA</option>
+          <option value="GCW_OBIEE">GCW OBIEE</option>
+          <option value="GCW_OBIEE">GCW INFORMATICA</option>
+          <option value="HRA_OBIEE">HRA OBIEE</option>
+          <option value="HRA_OBIEE">HRA INFORMATICA</option>
+        </select>
       </div>
       <div class="item">
         <label for="activity_names">Select activities for which you want to perform maintenance form the below multi
@@ -78,11 +88,11 @@
         </div>
       </div>
       <div class="item">
-        <label for="reviewer_mailid"> Reviewer Mail ID or DL<span>*</span></label>
+        <label for="reviewer_mailid"> Reviewer Mail ID<span>*</span></label>
         <input id="reviewer_mailid" type="text" name="reviewer_mailid" required />
       </div>
       <div class="item">
-        <label for="approver_mailid"> Approver Mail ID or DL<span>*</span></label>
+        <label for="approver_mailid"> Approver Mail ID<span>*</span></label>
         <input id="approver_mailid" type="text" name="approver_mailid" required />
       </div>
       <div class="item">
