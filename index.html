@@ -62,28 +62,25 @@
         <input id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure"
           placeholder="SOP Document Number" required />
       </div>
+      <!--
       <div class="item">
         <label for="due_date">Due Date<span>*</span></label>
         <input id="due_date" type="date" name="due_date" required />
         <i class="fas fa-calendar-alt"></i>
-      </div>
+      </div>-->
       <div class="item">
         <label for="sm_name">Interval<span>*</span></label>
         <select class="custom-item">
           <option selected value="" disabled selected></option>
+          <option value="Quaterly">Monthly</option>
           <option value="Quaterly">Quaterly</option>
           <option value="Semi_Annual">Semi Annual</option>
         </select>
       </div>
       <div class="flax">
         <div class="item">
-          <label for="maintenance_period">Maintenance Period (Date Range)<span>*</span></label>
-          <p>Start Date</p>
+          <label for="maintenance_period">Maintenance Period (Start Date)<span>*</span></label>
           <input id="start_date" type="date" name="start_date" required />
-          <i class="fas fa-calendar-alt"></i>
-          <p>End Date</p>
-
-          <input id="end_date" type="date" name="end_date" required />
           <i class="fas fa-calendar-alt"></i>
         </div>
       </div>
