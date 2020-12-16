@@ -3,12 +3,11 @@
 
 <head>
   <title>Platform Maintenance Self Service Portal</title>
-  <!-- <link href="css/default-stylesheet.css" rel="stylesheet"> -->
+  <link href="css/default-stylesheet.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <!-- <script src="js/default-javascript.js"></script> -->
-
+  <script src="js/default-javascript.js"></script>
   <style>
     .form-text {
       width: 250px;
@@ -289,16 +288,28 @@
         </select>
       </div>
       <div class="item">
-        <label for="system_name"> System Name<span>*</span></label>
+        <label for="system_name"> Platform<span>*</span></label>
         <select class="custom-item" required>
           <option selected value="" disabled selected></option>
-          <option value="RDM_OBIEE">RDM BI OBIEE</option>
-          <option value="RDM_OBIEE">RDM BI INFORMATICA</option>
-          <option value="GCW_OBIEE">GCW OBIEE</option>
-          <option value="GCW_OBIEE">GCW INFORMATICA</option>
-          <option value="HRA_OBIEE">HRA OBIEE</option>
-          <option value="HRA_OBIEE">HRA INFORMATICA</option>
+          <option value="Alteryx">Alteryx Server Platform(ASP)</option>
+          <option value="Automic">Gilead One Automation(GOA)</option>
+          <option value="GCW">Gilead Central Warehouse(GCW)</option>
+          <option value="HRA">OBIEE - HR Analytics(HRA)</option>
+          <option value="Hyperion">Hyperion(HYPR)</option>
+          <option value="MESA">OBIEE - MESA(MESA)</option>
+          <option value="Microstrategy">GDashboard(GDSB)</option>
+          <option value="RDM INFORMATICA">RDM BI Informatica(RDMI)</option>
+          <option value="RDM OBIEE">RDM BI OBIEE(RDMO)</option>
+          <option value="Spotfire">Gilead Visualization Tool(GVT)</option>
+          <option value="Tableau">Gilead Tableau Platform(GTP)</option>
         </select>
+      </div>
+      <div class="item">
+        <label for="activity_names">Rerun previous build<span>*</span></label>
+        <select class="custom-item" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option></select>
+          <br>
       </div>
       <div class="item">
         <label for="activity_names">Select activities for which you want to perform maintenance form the below multi
@@ -318,31 +329,42 @@
         </select>
       </div>
       <div class="item">
-        <label for="location">Server Location<span>*</span></label>
-        <input id="location" type="text" name="location" placeholder="e.g. San Jose or Foster City" required />
+        <label for="Locations">Locations.<span>*</span></label>
+        <br />
+        <select class="Locations" multiple>
+          <option value="Location 1">Foster City, CA</option>
+          <option value="Location 2">San Jose CA</option>
+          <option value="location 3">Seattle, WA</option>
+          <option value="location 4">AWS</option>
+          <option value="location 5">Azure</option>
+          </select>
       </div>
       <div class="item">
         <label for="Operation_and_Maintenance_Procedure">Operation and Maintenance Procedure <span>*</span></label>
         <input id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure"
           placeholder="SOP Document Number" required />
       </div>
+      <!--
       <div class="item">
         <label for="due_date">Due Date<span>*</span></label>
         <input id="due_date" type="date" name="due_date" required />
         <i class="fas fa-calendar-alt"></i>
-      </div>
+      </div>-->
       <div class="item">
         <label for="sm_name">Interval<span>*</span></label>
         <select class="custom-item">
           <option selected value="" disabled selected></option>
-          <option value="Quaterly">Quaterly</option>
-          <option value="Semi_Annual">Semi Annual</option>
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Quarerly">Quarerly</option>
+          <option value="Semi-Annual">Semi-Annual</option>
+          <option value="Annual">Annual</option>
         </select>
       </div>
       <div class="flax">
         <div class="item">
-          <label for="maintenance_period">Maintenance Period (Date Range)<span>*</span></label>
-          <p>Start Date</p>
+          <label for="maintenance_period">Maintenance Period (Start Date)<span>*</span></label>
           <input id="start_date" type="date" name="start_date" required />
           <i class="fas fa-calendar-alt"></i>
         </div>

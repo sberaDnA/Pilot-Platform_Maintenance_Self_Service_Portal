@@ -1,44 +1,34 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const router = express.Router();
-const url = require('url');
+var express = require("express");
+var bodyParser = require('body-parser');
+var app = express();
+var userList = require('./usersList.json');
+ 
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
+ 
+app.get('/login', function (req, res) {  
+   res.sendFile( __dirname + "/" + "login.html" );  
+});   
 
-router.get('/login',function(req,res){
-    let filePath = path.join(
-        __dirname,
-        req.url === "/" ? "login.html" : req.url
-    );
-    let extName = path.extname(filePath);
-    let contentType = 'text/html';
-
-    switch (extName) {
-        case '.css':
-            contentType = 'text/css';
-            break;
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.json':
-            contentType = 'application/json';
-            break;
-        case '.png':
-            contentType = 'image/png';
-            break;
-        case '.jpg':
-            contentType = 'image/jpg';
-            break;
+function authenticUser(req, res) {
+    for (var i=0; i < userList.length; i++) {
+        if (userList[i].userId === req.body.userName && userList[i].password === req.body.password) {
+            return true;
+        }
     }
-    res.setHeader("Content-Type", "text/html");
-    res.sendFile(path.join(__dirname+'/login.html'));
+    return false;
+}
+app.post('/configure-job', function (req, res) {
+    if (authenticUser(req, res)) {
+        res.sendFile( __dirname + "/" + "index.html" );
+    } else {
+        res.sendFile( __dirname + "/" + "login-failure.html" ); 
+    }
 });
 
-router.get('/index',function(req,res){
-    res.setHeader("Content-Type", "text/html");
-    res.sendFile(path.join(__dirname+'/index.html'));
+app.post('/back-to-login', function (req, res){
+    res.sendFile( __dirname + "/" + "login.html" );
 });
-
-app.use('/', router);
-app.listen(process.env.port || 8000);
-
-console.log('Running at Port 8000');
+app.listen(8000);
+console.log('Server starting on localhost:8000');
