@@ -41,10 +41,9 @@ html, body {
       }
       .banner {
       position: relative;
-      height: 300px;
-      background-image: url("images/automation_maintenance.png");  
+      height: 300px; 
       background-size: cover;
-	  background-color: #FF5B4D;
+	    background-color: #FF5B4D;
       display: flex;
       justify-content: center;
       align-items: center;

@@ -1,19 +1,19 @@
 [
     {
         "userId": "biswajit",
-        "password": "abc@123"
+        "password": "test"
     },
     {
         "userId": "harish",
-        "password": "abc@234"
+        "password": "test"
     },
     {
         "userId": "kaustav",
-        "password": "abc@345"
+        "password": "test"
     },
     {
         "userId": "rohan",
-        "password": "abc@456"
+        "password": "test"
     }
 
 ]

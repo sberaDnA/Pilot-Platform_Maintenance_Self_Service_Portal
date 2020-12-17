@@ -156,6 +156,11 @@
       height: auto;
     }
 
+    .Activities {
+      width: 50%;
+      height: auto;
+    }
+
     .item i {
       right: 1%;
       top: 30px;
@@ -279,6 +284,11 @@
       <div class="banner">
         <h1>Platform Maintenance Self Service Portal</h1>
       </div>
+    <div>
+        <script>
+        document.write("Hello userName");
+        </script>
+    </div>
       <div class="item">
         <label for="sm_name">Select Maintenance Type<span>*</span></label>
         <select class="custom-item" required>
@@ -288,7 +298,7 @@
         </select>
       </div>
       <div class="item">
-        <label for="system_name"> Platform<span>*</span></label>
+        <label for="PlatformName"> Platform<span>*</span></label>
         <select class="custom-item" required>
           <option selected value="" disabled selected></option>
           <option value="Alteryx">Alteryx Server Platform(ASP)</option>
@@ -298,29 +308,42 @@
           <option value="Hyperion">Hyperion(HYPR)</option>
           <option value="MESA">OBIEE - MESA(MESA)</option>
           <option value="Microstrategy">GDashboard(GDSB)</option>
-          <option value="RDM INFORMATICA">RDM BI Informatica(RDMI)</option>
+          <option value="RDM Informatica">RDM BI Informatica(RDMI)</option>
           <option value="RDM OBIEE">RDM BI OBIEE(RDMO)</option>
           <option value="Spotfire">Gilead Visualization Tool(GVT)</option>
           <option value="Tableau">Gilead Tableau Platform(GTP)</option>
         </select>
       </div>
       <div class="item">
-        <label for="activity_names">Rerun previous Unique ID<span>*</span></label>
+        <label for="ReRun">Rerun previous Unique ID<span>*</span></label>
         <select class="custom-item" required>
           <option value="Yes">Yes</option>
           <option value="No">No</option></select>
           <br>
       </div>
       <div class="item">
-        <label for="activity_names">Unique ID<span>*</span></label>
+        <label for="BuildNumber">Build Number<span>*</span></label>
         <input id="Unique-ID" type="text" name="Unique-ID"/>
           <br>
       </div>
       <div class="item">
-        <label for="activity_names">Select activities for which you want to perform maintenance form the below multi
-          select list.<span>*</span></label>
+        <label for="Environments">Environments<span>*</span></label>
         <br />
         <select class="custom-item2" multiple>
+          <option value="dev">dev</option>
+          <option value="test">test</option>
+          <option value="qa">qa</option>
+          <option value="uat">uat</option>
+          <option value="val">val</option>
+          <option value="prod">prod</option>
+          <option value="dr">dr</option>
+        </select>
+      </div>
+      <div class="item">
+        <label for="Activities">Select activities for which you want to perform maintenance form the below multi
+          select list.<span>*</span></label>
+        <br />
+        <select class="Activities" multiple>
           <option value="activity_1">Activity 1: Review of Privileged user accounts</option>
           <option value="activiy_2">Activity 2: Review of System Administrator accounts</option>
           <option value="activiy_3">Activity 3: System account password management</option>
@@ -334,7 +357,7 @@
         </select>
       </div>
       <div class="item">
-        <label for="Locations">Locations.<span>*</span></label>
+        <label for="Locations">Locations<span>*</span></label>
         <br />
         <select class="Locations" multiple>
           <option value="Location 1">Foster City, CA</option>
@@ -345,18 +368,13 @@
           </select>
       </div>
       <div class="item">
-        <label for="Operation_and_Maintenance_Procedure">Operation and Maintenance Procedure <span>*</span></label>
+        <label for="SOPS">Operation and Maintenance Procedure <span>*</span></label>
         <input id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure"
           placeholder="SOP Document Number" required />
       </div>
-      <!--
+      
       <div class="item">
-        <label for="due_date">Due Date<span>*</span></label>
-        <input id="due_date" type="date" name="due_date" required />
-        <i class="fas fa-calendar-alt"></i>
-      </div>-->
-      <div class="item">
-        <label for="sm_name">Interval<span>*</span></label>
+        <label for="Frequency">Frequency<span>*</span></label>
         <select class="custom-item">
           <option selected value="" disabled selected></option>
           <option value="Daily">Daily</option>
@@ -367,20 +385,28 @@
           <option value="Annual">Annual</option>
         </select>
       </div>
-      <div class="flax">
+      <div class="fas">
         <div class="item">
-          <label for="maintenance_period">Maintenance Period (Start Date)<span>*</span></label>
+          <label for="StartDate">Maintenance Period (Start Date)<span>*</span></label>
           <input id="start_date" type="date" name="start_date" required />
           <i class="fas fa-calendar-alt"></i>
         </div>
       </div>
-      <div class="item">
-        <label for="reviewer_mailid"> Reviewer Mail ID<span>*</span></label>
-        <input id="reviewer_mailid" type="text" name="reviewer_mailid" required />
+      <br>
+      <div class="fas">
+        <div class="item">
+          <label for="DueDate">Due Date<span>*</span></label>
+          <input id="DueDate" type="date" name="due_date" required />
+          <i class="fas fa-calendar-alt"></i>
+        </div>
       </div>
       <div class="item">
-        <label for="approver_mailid"> Approver Mail ID<span>*</span></label>
-        <input id="approver_mailid" type="text" name="approver_mailid" required />
+        <label for="ReviewerEmail"> Reviewer Mail ID<span>*</span></label>
+        <input id="ReviewerEmail" type="email" name="reviewer_mailid" required />
+      </div>
+      <div class="item">
+        <label for="ApproverEmail"> Approver Mail ID<span>*</span></label>
+        <input id="ApproverEmail" type="email" name="ApproverEmail" required />
       </div>
       <div class="item">
         <label for="instructions">Special Instructions</label>
