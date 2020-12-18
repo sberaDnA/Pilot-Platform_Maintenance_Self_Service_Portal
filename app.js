@@ -10,7 +10,7 @@ var jenkinsapi = require('jenkins-api');
 var jenkins = jenkinsapi.init("http://devopsAdmin:devops@2020@3.214.97.123:8080");
 
 //jenkins auth using Token
-//var jenkins = jenkinsapi.init('http://3.214.97.123:8080/job/TestUI/buildWithParameters?token=1178213d984fd5565829a313a2763270ac');
+var jenkins = jenkinsapi.init('http://3.214.97.123:8080/job/TestUI/buildWithParameters?token=1178213d984fd5565829a313a2763270ac');
  
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -55,7 +55,7 @@ app.post('/submit-job', function (req, res) {
         }
     });
 
-    jenkins.build_with_params('TestUI', (optional){depth: 1, PlatformName: "Alteryx", token: 'UI_Token'}, 
+    jenkins.build_with_params('TestUI', {depth: 1, PlatformName: "Alteryx", token: 'UI_Token'}, 
     function(err, data) {
         if (err){ return console.log(err); }
         console.log(data)
