@@ -14,6 +14,9 @@
     {
         "userId": "rohan",
         "password": "test"
+    },
+    {
+        "userId":"dnadevops",
+        "password":"test"
     }
-
 ]
