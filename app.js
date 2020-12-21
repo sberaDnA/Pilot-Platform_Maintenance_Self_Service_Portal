@@ -21,7 +21,12 @@ app.use(express.static(__dirname + '/public'));
 app.get('/login', function (req, res) {  
     res.setHeader('Access-Control-Allow-Origin', true);
     res.sendFile( __dirname + "/public/html/" + "login.html" );  
-});   
+});  
+
+// app.get('/configure-job', function (req, res) {  
+//     res.setHeader('Access-Control-Allow-Origin', true);
+//     res.sendFile( __dirname + "/public/html/" + "index.html" );  
+// }); 
 
 function authenticUser(req, res) {
     for (var i=0; i < userList.length; i++) {
@@ -55,11 +60,11 @@ app.post('/submit-job', function (req, res) {
         }
     });
 
-    jenkins.build_with_params('TestUI', {depth: 1, PlatformName: "Alteryx", token: 'UI_Token'}, 
-    function(err, data) {
-        if (err){ return console.log(err); }
-        console.log(data)
-      });
-});
+    // jenkins.build_with_params('TestUI', {depth: 1, PlatformName: "Alteryx", token: 'UI_Token'}, 
+    // function(err, data) {
+    //     if (err){ return console.log(err); }
+    //     console.log(data)
+    //   });
+ });
 app.listen(8000);
 console.log('Server starting on localhost:8000');

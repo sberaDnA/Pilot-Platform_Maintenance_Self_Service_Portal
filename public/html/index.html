@@ -23,10 +23,10 @@
     </div>
       <div class="item">
         <label for="sm_name">Select Maintenance Type<span>*</span></label>
-        <select class="custom-item" required>
+        <select id="maintenanceType" class="custom-item" required>
           <option selected value="" disabled selected></option>
-          <option value="System_Maintenance_FRM-11106">System Maintenance FRM-11106</option>
-          <option value="Server_Maintenance_FRM-10481">Server Maintenance FRM-10481</option>
+          <option value="systemMaintenance">System Maintenance FRM-11106</option>
+          <option value="serverMaintenance">Server Maintenance FRM-10481</option>
         </select>
       </div>
       <div class="item">
@@ -48,63 +48,195 @@
       </div>
       <div class="item">
         <label for="ReRun">Rerun previous Unique ID<span>*</span></label>
-        <select class="custom-item" required>
+        <select class="custom-item" id="reRun" required>
+          <option selected value="0" disabled selected></option>
           <option value="Yes">Yes</option>
           <option value="No">No</option></select>
           <br>
       </div>
-      <div class="item">
-        <label for="BuildNumber">Build Number<span>*</span></label>
-        <input id="Unique-ID" type="text" name="Unique-ID"/>
+      <div class="item" id="showBuildNumber" style="display: none;"> 
+        <label for="BuildNumber">Build Number<span>*</span></label>&nbsp;
+        <input id="Unique-ID" type="text" style="width: 200px; border: 0.5px solid #ccc; border-radius: 5px;" name="Unique-ID"/>
           <br>
       </div>
-      <div class="item">
-        <label for="Environments">Environments<span>*</span></label>
-        <br />
-        <select class="custom-item2" multiple>
-          <option value="dev">dev</option>
-          <option value="test">test</option>
-          <option value="qa">qa</option>
-          <option value="uat">uat</option>
-          <option value="val">val</option>
-          <option value="prod">prod</option>
-          <option value="dr">dr</option>
-        </select>
+      <div class="">
+        <label for="Environments">Environments<span style="color: red;">*</span></label>
+        <table style="width: 60%; border: 0.5px solid #ccc; margin: -20px 0 0 125px; border-radius: 5px; ">
+          <tr style="width: 90%;">
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="dev"/>&nbsp;&nbsp;dev</span>
+            </td>
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="test"/>&nbsp;&nbsp;test</span>
+            </td>
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="qa"/>&nbsp;&nbsp;qa</span>
+            </td>
+          </tr>
+          <tr style="width: 90%;">
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="uat"/>&nbsp;&nbsp;uat</span>
+            </td>
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="val"/>&nbsp;&nbsp;val</span>
+            </td>
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="prod"/>&nbsp;&nbsp;prod</span>
+            </td>
+          </tr>
+          <tr style="width: 90%;">
+            <td style="width: 32%;">
+              <span><input type="checkbox" name="env" class="env" value="dr"/>&nbsp;&nbsp;dr</span>
+            </td>
+          </tr>
+        </table>
       </div>
-      <div class="item">
+      <div id="systemActivities" style="display: none;">
+        <br>
         <label for="Activities">Select activities for which you want to perform maintenance form the below multi
-          select list.<span>*</span></label>
+          select list.<span style="color: red;">*</span></label>
         <br />
-        <select class="Activities" multiple>
-          <option value="activity_1">Activity 1: Review of Privileged user accounts</option>
-          <option value="activiy_2">Activity 2: Review of System Administrator accounts</option>
-          <option value="activiy_3">Activity 3: System account password management</option>
-          <option value="activiy_4">Activity 4: Review of program files and configurations</option>
-          <option value="activiy_5">Activity 5: Review of scheduled jobs</option>
-          <option value="activiy_6">Activity 6: Review of system</option>
-          <option value="activiy_7">Activity 7: Review of system restore status</option>
-          <option value="activiy_8">Activity 8: Verify system is in the CMDB</option>
-          <option value="activiy_9">Activity 9: Verify system has all relationships to other Cis</option>
-          <option value="activiy_10">Activity 10: Additional System Specific Maintenance</option>
-        </select>
+        <br>
+        <table style="width: 100%; border: 0.5px solid #ccc; border-radius: 5px;">
+          <tr style="width: 100%;">
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_1"/>&nbsp;&nbsp;Activity 1: Review of Privileged user accounts</span>
+            </td>
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_2"/>&nbsp;&nbsp;Activity 2: Review of System Administrator accounts</span>
+            </td>
+          </tr>
+          <tr style="width: 100%;">
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_3"/>&nbsp;&nbsp;Activity 3: System account password management</span>
+            </td>
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_4"/>&nbsp;&nbsp;Activity 4: Review of program files and configurations</span>
+            </td>
+          </tr>
+          <tr style="width: 100%;">
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_5"/>&nbsp;&nbsp;Activity 5: Review of scheduled jobs</span>
+            </td>
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_6"/>&nbsp;&nbsp;Activity 6: Review of system</span>
+            </td>
+          </tr>
+          <tr style="width: 100%;">
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_7"/>&nbsp;&nbsp;Activity 7: Review of system restore status</span>
+            </td>
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_8"/>&nbsp;&nbsp;Activity 8: Verify system is in the CMDB</span>
+            </td>
+          </tr>
+          <tr style="width: 100%;">
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_9"/>&nbsp;&nbsp;Activity 9: Verify system has all relationships to other Cis</span>
+            </td>
+            <td style="width: 45%;">
+              <span><input type="checkbox" name="activity" class="activity" value="activity_10"/>&nbsp;&nbsp;Activity 10: Additional System Specific Maintenance</span>
+            </td>
+          </tr>
+        </table>
       </div>
-      <div class="item">
-        <label for="Locations">Locations<span>*</span></label>
+      <div id="serverActivities" style="display: none;">
+        <br>
+        <label for="Activities">Select activities for which you want to perform maintenance form the below multi
+          select list.<span style="color: red;">*</span></label>
         <br />
-        <select class="Locations" multiple>
-          <option value="Location 1">Foster City, CA</option>
-          <option value="Location 2">San Jose CA</option>
-          <option value="location 3">Seattle, WA</option>
-          <option value="location 4">AWS</option>
-          <option value="location 5">Azure</option>
-          </select>
+        <br>
+        <table style="width: 100%; border: 0.5px solid #ccc; border-radius: 5px;">
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_1"/>&nbsp;&nbsp;Activity 01: Inspect system logs related to server operating system, security, start-up, and shutdown</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_2"/>&nbsp;&nbsp;Activity 02: Review monitoring tools configuration for proper monitoring of server</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_3"/>&nbsp;&nbsp;Activity 03: Perform Server File System clean-up and check disk capacity</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_4"/>&nbsp;&nbsp;Activity 04: Review server’s local user accounts to verify that access privileges correspond with role assignment, responsibilities and authorization</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_5"/>&nbsp;&nbsp;Activity 05: Verify that the server operating system is at current patch level</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_6"/>&nbsp;&nbsp;Activity 06: Verify the antivirus software is active and current</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_7"/>&nbsp;&nbsp;Activity 07: Verify that the server time service process is active and configured correctly</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_8"/>&nbsp;&nbsp;Activity 08: Login to the backup server and verify the policy that applies to this server and verify that the server is being backed up</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_9"/>&nbsp;&nbsp;Activity 09: Verify server is in GPV (Gilead Password Vault)</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="activity" class="activity" value="activity_10"/>&nbsp;&nbsp;Activity 10: Verify server is in the CMDB</span>
+            </td>
+          </tr>
+        </table>
       </div>
+      <br>
+      <div>
+        <label for="Locations">Locations<span style="color: red;">*</span></label>
+        <br />
+        <table style="width: 60%; border: 0.5px solid #ccc; margin: -20px 0 0 125px; width: 60%; border: 0.5px solid #ccc; border-radius: 5px;">
+          <tr>
+            <td>
+              <span><input type="checkbox" name="location" class="location" value="location_1"/>&nbsp;&nbsp;Foster City, CA</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="location" class="location" value="location_2"/>&nbsp;&nbsp;San Jose CA</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="location" class="location" value="location_3"/>&nbsp;&nbsp;Seattle, WA</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="location" class="location" value="location_4"/>&nbsp;&nbsp;AWS</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span><input type="checkbox" name="location" class="location" value="location_5"/>&nbsp;&nbsp;Azure</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <br>
       <div class="item">
         <label for="SOPS">Operation and Maintenance Procedure <span>*</span></label>
-        <input id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure"
+        <input style="width: 250px;" id="Operation_and_Maintenance_Procedure" type="text" name="Operation_and_Maintenance_Procedure"
           placeholder="SOP Document Number" required />
       </div>
-      
       <div class="item">
         <label for="Frequency">Frequency<span>*</span></label>
         <select class="custom-item">
@@ -132,22 +264,26 @@
           <i class="fas fa-calendar-alt"></i>
         </div>
       </div>
+      <br>
       <div class="item">
         <label for="ReviewerEmail"> Reviewer Mail ID<span>*</span></label>
-        <input id="ReviewerEmail" type="email" name="reviewer_mailid" required />
+        <input style="width: 350px;" id="ReviewerEmail" type="email" name="reviewer_mailid" required />
       </div>
+      <br>
       <div class="item">
         <label for="ApproverEmail"> Approver Mail ID<span>*</span></label>
-        <input id="ApproverEmail" type="email" name="ApproverEmail" required />
+        <input style="width: 350px;" id="ApproverEmail" type="email" name="ApproverEmail" required />
       </div>
-      <div class="item">
+      <br>
+      <div>
         <label for="instructions">Special Instructions</label>
-        <textarea id="instructions" rows="3"></textarea>
+        <br>
+        <textarea style="width: 350px;" id="instructions" rows="3"></textarea>
+        <br>
+        <span><small>0/100 characters</small></span>
       </div>
-      <p><small>0/100 characters</small></p>
-      <div class="btn-block">
-        <input type="submit" value="Submit Job" class="button"/>
-      </div>
+      <br>
+      <div style="text-align: center;"><input type="submit" value="Submit Job" class="button"/></div>
     </form>
   </div>
 </body>

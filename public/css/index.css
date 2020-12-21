@@ -16,7 +16,6 @@
   input,
   select,
   textarea,
-  label,
   p {
     padding: 0;
     margin: 0;
@@ -36,10 +35,10 @@
     line-height: 83px;
   }
 
-  textarea {
+  /* textarea {
     width: calc(100% - 12px);
     padding: 5px;
-  }
+  } */
 
   .testbox {
     display: flex;
@@ -163,17 +162,12 @@
     cursor: pointer;
   }
 
-  input[type=radio],
-  input[type=checkbox] {
-    display: none;
-  }
-
-  label.radio {
+  /* label.radio {
     position: relative;
     display: inline-block;
     margin: 5px 20px 15px 0;
     cursor: pointer;
-  }
+  } */
 
   .question span {
     margin-left: 30px;
@@ -181,39 +175,6 @@
 
   .question-answer label {
     display: block;
-  }
-
-  label.radio:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-  }
-
-  input[type=radio]:checked+label:before,
-  label.radio:hover:before {
-    border: 2px solid #669999;
-  }
-
-  label.radio:after {
-    content: "";
-    position: absolute;
-    top: 6px;
-    left: 5px;
-    width: 8px;
-    height: 4px;
-    border: 3px solid #669999;
-    border-top: none;
-    border-right: none;
-    transform: rotate(-45deg);
-    opacity: 0;
-  }
-
-  input[type=radio]:checked+label:after {
-    opacity: 1;
   }
 
   .flax {
@@ -226,7 +187,7 @@
     text-align: center;
   }
 
-  button {
+  .button {
     width: 150px;
     padding: 10px;
     border: none;
@@ -237,10 +198,18 @@
     cursor: pointer;
   }
 
-  button:hover {
+/* button:hover {
     background: #a3c2c2;
-  }
+  } */
 
+table input{
+width: auto;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bolder;
+}
   @media (min-width: 568px) {
 
     .name-item,
